@@ -1,0 +1,43 @@
+server:
+  port: 7073
+
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri:
+            lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: VACCINATION_CENTER-SERVICE
+          uri:
+            lb://VACCINATION_CENTER-SERVICE
+          predicates:
+            - Path=/vacCenter/**
+
+
+
+#spring:
+#  application:
+#    name: API_GATEWAY
+#
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: USER-SERVICE
+#        uri:
+#          lb: //USER-SERVICE
+#          predicates:
+#            -Path=/user/**
+#
+#        - id: VACCINATION_CENTER-SERVICE
+#        uri:
+#          lb: //VACCINATION_CENTER-SERVICE
+#          predicates:
+#            -Path=/vacCenter/**
+
+
