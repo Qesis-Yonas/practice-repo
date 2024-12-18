@@ -28,6 +28,10 @@ public class Exercise1 {
         StreamSources.intNumbersStream().filter(x -> x > 5).findFirst().ifPresentOrElse(System.out::println, () -> System.out.println(-1));
         System.out.print("\n");
 
+        //Or else
+        Integer firstInteger = StreamSources.intNumbersStream().filter(x -> x > 5).findFirst().orElse(-1);
+        System.out.println(firstInteger);
+
         // Print first names of all users in userStream
         // TODO: Write code here
         StreamSources.userStream().map(User::getFirstName).forEach(System.out::println);
